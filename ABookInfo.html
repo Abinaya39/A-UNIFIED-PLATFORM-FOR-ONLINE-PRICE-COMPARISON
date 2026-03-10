@@ -1,0 +1,259 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Recommendation</title>
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="static/css/style-starter.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html">
+                   Product<span> Recommendation</span>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll">
+                       {% include 'menu/admin.html'  %}
+
+
+                    </ul>
+
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+
+    <!-- contact section -->
+    <section class="w3l-contact-11 py-5" id="contact">
+        <div class="container py-lg-5 py-md-4 py-2">
+
+
+            <div class="form-inner-cont mx-auto" style="max-width:800px">
+
+<h3 class="title-style text-center mb-lg-5 mb-4">Product Book <span>Informations</span></h3>
+<div style="margin-right:1000px;">
+ <table width="80%" border="1" align="center" class="contactct-fm map-content-9">
+              <tr>
+<thead>
+                <th>Book id</th>
+                <th>UserName</th>
+                   <th>Mobile</th>
+                   <th>Gamil</th>
+                <th>ProductName</th>
+                <th>Price</th>
+                <th>Info</th>
+                  <th>Qty</th>
+                <th>Totalprice</th>
+                   <th>Image</th>
+
+
+</thead>
+
+              </tr>
+			  {% for item in data1 %}
+              <tr >
+                   <td>{{item[10]}}</td>
+                    <td>{{item[1]}}</td>
+                   <td>{{item[11]}}</td>
+                   <td>{{item[12]}}</td>
+                   <td>{{item[2]}}</td>
+                <td>{{item[4]}}</td>
+                  <td>{{item[14]}}</td>
+                <td>{{item[5]}}</td>
+                <td>{{item[6]}}</td>
+
+                <td><img src="static/upload/{{item[7]}}" width="100" height="100"></td>
+
+
+              </tr>
+			  {% endfor %}
+
+            </table>
+</div>
+<h3 class="title-style text-center mb-lg-5 mb-4">Payment<span>Informations</span></h3>
+ <table width="80%" border="1" align="center" class="contactct-fm map-content-9">
+              <tr>
+
+<thead>
+                <th>UserName</th>
+                <th>Book id</th>
+                <th>Qty</th>
+                    <th>Amount</th>
+                <th>CardName</th>
+                   <th>Date</th>
+</thead>
+              </tr>
+			  {% for item1 in data2 %}
+              <tr >
+                  <td>{{item1[1]}}</td>
+                <td>{{item1[2]}}</td>
+
+                <td>{{item1[3]}}</td>
+                <td>{{item1[4]}}</td>
+                <td>{{item1[5]}}</td>
+                    <td>{{item1[8]}}</td>
+
+              </tr>
+			  {% endfor %}
+
+            </table>
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- map -->
+
+
+    <!-- footer -->
+    <footer class="w3l-footer-16 py-5">
+        <div class="container pt-md-5 pt-sm-4 pb-sm-2">
+            <div class="row">
+
+                <div class="col-lg-5 mt-lg-0 mt-5">
+
+                </div>
+
+            </div>
+            <div class="below-section text-center pt-4 mt-5">
+                <p class="copy-text">&copy; 2025 TextileShop. All rights reserved. Design by <a
+                        href="#" target="_blank"> Student</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- //move top -->
+
+    <!-- common jquery plugin -->
+    <script src="static/js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
+
+    <!-- theme switch js (light and dark)-->
+    <script src="static/js/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+
+    <!-- bootstrap -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- Flash Notification -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <script>
+                var messages = {{ messages | safe }};
+                for (var i=0; i<messages.length; i++) {
+                alert(messages[i]);
+                }
+             </script>
+            {% endif %}
+            {% endwith %}
+        <!-- Flash Notification -->
+    <!-- //Js scripts -->
+</body>
+
+</html>
